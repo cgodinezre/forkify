@@ -1,8 +1,8 @@
-import icons from 'url:../../img/icons.svg'; // ✅ Importa la ruta del SVG empaquetada por Parcel
+import icons from 'url:../../img/icons.svg'; // ✅ Importación correcta para Parcel
 
 export default class View {
   _data;
-  _icons = icons; // ✅ Se guarda para usar en los <use href="...">
+  _icons = icons; // ✅ Disponible para todas las subclases como this._icons
 
   render(data) {
     if (!data || (Array.isArray(data) && data.length === 0))
