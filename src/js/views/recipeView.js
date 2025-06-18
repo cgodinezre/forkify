@@ -1,8 +1,10 @@
+import icons from 'url:../../img/icons.svg';
+
 class RecipeView {
   #parentElement = document.querySelector('.recipe');
   _errorMessage = 'We could not find that recipe. Please try another one!';
   _message = 'Recipe was successfully loaded!';
-  _icons = 'src/img/icons.svg';
+  _icons = icons;
 
   render(data) {
     const markup = this._generateMarkup(data);
@@ -76,7 +78,7 @@ class RecipeView {
           <svg class="recipe__info-icon">
             <use href="${this._icons}#icon-clock"></use>
           </svg>
-          <span class="recipe__info-data recipe__info-data--minutes">${data.cookTime}</span>
+          <span class="recipe__info-data recipe__info-data--minutes">${data.cookingTime}</span>
           <span class="recipe__info-text">minutes</span>
         </div>
 
@@ -92,7 +94,9 @@ class RecipeView {
       <div class="recipe__ingredients">
         <h2 class="heading--2">Recipe ingredients</h2>
         <ul class="recipe__ingredient-list">
-          ${data.ingredients.map(ing => `
+          ${data.ingredients
+            .map(
+              ing => `
             <li class="recipe__ingredient">
               <svg class="recipe__icon">
                 <use href="${this._icons}#icon-check"></use>
@@ -103,7 +107,9 @@ class RecipeView {
                 ${ing.description}
               </div>
             </li>
-          `).join('')}
+          `
+            )
+            .join('')}
         </ul>
       </div>
 
