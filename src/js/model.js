@@ -22,7 +22,7 @@ export const loadRecipe = async function (id) {
       title: recipe.title,
       publisher: recipe.publisher,
       sourceUrl: recipe.source_url,
-      image: recipe.image_url,
+      image: recipe.image_url.replace('http://', 'https://'),
       servings: recipe.servings,
       cookTime: recipe.cooking_time,
       ingredients: recipe.ingredients,
@@ -43,7 +43,7 @@ export const loadSearchResults = async function (query) {
       id: rec.id,
       title: rec.title,
       publisher: rec.publisher,
-      image: rec.image_url,
+      image: rec.image_url.replace('http://', 'https://'),
     }));
   } catch (err) {
     console.log(`${err} 💥💥💥💥`);
